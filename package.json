@@ -26,7 +26,7 @@
     "@mui/material": "5.8.6",
     "@netlify/vite-plugin-netlify-edge": "1.1.0",
     "@types/eslint": "8.4.5",
-    "@types/node": "latest",
+    "@types/node": "^18.6.3",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
     "@typescript-eslint/eslint-plugin": "5.30.7",
@@ -50,5 +50,6 @@
   "homepage": "https://qwik.builder.io/",
   "license": "",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "dependencies": {}
 }
