@@ -1,5 +1,5 @@
-import { component$, Host } from '@builder.io/qwik';
-import { useLocation, DocumentHead } from '@builder.io/qwik-city';
+import { component$, Host } from "@builder.io/qwik";
+import { useLocation, DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const { pathname, params } = useLocation();

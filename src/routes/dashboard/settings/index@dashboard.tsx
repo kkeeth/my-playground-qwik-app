@@ -1,4 +1,4 @@
-import { component$, Host } from '@builder.io/qwik';
+import { component$, Host } from "@builder.io/qwik";
 
 export default component$(() => {
   return (

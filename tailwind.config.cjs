@@ -1,10 +1,10 @@
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     listStyleType: {
-      square: 'square',
+      square: "square",
     },
     extend: {},
   },
   plugins: [],
-}
+};

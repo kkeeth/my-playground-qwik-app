@@ -1,5 +1,5 @@
-import type { EndpointHandler } from '@builder.io/qwik-city';
-import os from 'os';
+import type { EndpointHandler } from "@builder.io/qwik-city";
+import os from "os";
 
 export const onGet: EndpointHandler = ({ request }) => {
   return {

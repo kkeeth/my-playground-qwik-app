@@ -1,5 +1,5 @@
-import { component$, Host, useStyles$ } from '@builder.io/qwik';
-import styles from './footer.css?inline';
+import { component$, Host, useStyles$ } from "@builder.io/qwik";
+import styles from "./footer.css?inline";
 
 export default component$(
   () => {
@@ -30,6 +30,6 @@ export default component$(
     );
   },
   {
-    tagName: 'footer',
+    tagName: "footer",
   }
 );

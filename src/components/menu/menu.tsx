@@ -1,6 +1,6 @@
-import { component$, Host, useScopedStyles$ } from '@builder.io/qwik';
-import { useContent, Link, useLocation } from '@builder.io/qwik-city';
-import styles from './menu.css?inline';
+import { component$, Host, useScopedStyles$ } from "@builder.io/qwik";
+import { useContent, Link, useLocation } from "@builder.io/qwik-city";
+import styles from "./menu.css?inline";
 
 export const Menu = component$(
   () => {
@@ -21,7 +21,7 @@ export const Menu = component$(
                       <Link
                         href={item.href}
                         class={{
-                          'is-active': loc.pathname === item.href,
+                          "is-active": loc.pathname === item.href,
                         }}
                       >
                         {item.text}
@@ -35,5 +35,5 @@ export const Menu = component$(
       </Host>
     );
   },
-  { tagName: 'aside' }
+  { tagName: "aside" }
 );

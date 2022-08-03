@@ -1,7 +1,7 @@
-import { component$, Host, useClientEffect$, useStore } from '@builder.io/qwik';
+import { component$, Host, useClientEffect$, useStore } from "@builder.io/qwik";
 
 export default component$(() => {
-  const store = useStore({ timestamp: '', os: '', arch: '', node: '' });
+  const store = useStore({ timestamp: "", os: "", arch: "", node: "" });
 
   useClientEffect$(async () => {
     const url = `/api/builder.io/oss.json`;
