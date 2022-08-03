@@ -3,7 +3,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const github = useStore({
-    org: "BuilderIO",
+    org: "kkeeth", // "BuilderIO",
     repos: ["qwik", "partytown"] as string[] | null,
   });
 
@@ -24,9 +24,11 @@ export default component$(() => {
       </h1>
 
       <Greet />
-      <hr />
+      <hr class="my-2" />
       <Counter />
-      <hr />
+      <hr class="my-2" />
+      <InlineComponent />
+      <hr class="my-2" />
       <div class="p-4">
         <span>
           GitHub organization:
@@ -90,6 +92,9 @@ export const Counter = component$(() => {
   );
 });
 
+export const InlineComponent = () => {
+  return <div>this is the inline components!!</div>
+}
 export const head: DocumentHead = {
   title: "Welcome to Qwik City",
 };
