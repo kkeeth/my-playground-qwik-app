@@ -2,6 +2,10 @@ import { component$, Host, useStore } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 
 export default component$(() => {
+  const github = useStore({
+    org: 'BuilderIO',
+    repos: ['qwik', 'partytown'] as string[] | null,
+  });
 
   return (
     <Host class="p-4">
@@ -12,17 +16,27 @@ export default component$(() => {
       <div class="p-4">
         <span>
           GitHub organization:
-          <input class="ml-3 placeholder:italic placeholder:text-slate-400 border border-slate-300 rounded-md py-1 px-2 focus:border-sky-500 focus:outline-none focus:ring-1" value="BuilderIO" placeholder="any text type" />
+          <input
+            class="ml-3 placeholder:italic placeholder:text-slate-400 border border-slate-300 rounded-md py-1 px-2 focus:border-sky-500 focus:outline-none focus:ring-1"
+            value={github.org}
+            onKeyUp$={(ev) => (github.org = (ev.target as HTMLInputElement).value)}
+            placeholder="any text type"
+          />
         </span>
         <div>
+        {github.repos ? (
           <ul class="list-square">
-            <li>
-              <a class="underline text-blue-700" href="https://github.com/BuilderIO/qwik">Qwik</a>
-            </li>
-            <li>
-              <a class="underline text-blue-700" href="https://github.com/BuilderIO/partytown">Partytown</a>
-            </li>
+            {github.repos.map((repo) => (
+              <li>
+                <a class="underline text-blue-700" href={`https://github.com/${github.org}/${repo}`}>
+                  {github.org}/{repo}
+                </a>
+              </li>
+            ))}
           </ul>
+        ) : (
+          'loading...'
+        )}
         </div>
       </div>
 
