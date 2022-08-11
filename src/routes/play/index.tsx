@@ -1,4 +1,4 @@
-import { component$, Host, useStore } from "@builder.io/qwik";
+import { component$, Host, useStore, useClientEffect$, useRef } from "@builder.io/qwik";
 
 export default component$(() => {
   const store = useStore({ x: 0, y: 0 });
@@ -7,7 +7,7 @@ export default component$(() => {
     <Host>
       <h1>Welcome to the Docs!</h1>
 
-      <div document:onMouseMove$={(event: MouseEvent) => {
+      <div document:onClick$={(event: MouseEvent) => {
         store.x = event.x;
         store.y = event.y;
       }}>
@@ -22,14 +22,34 @@ export default component$(() => {
 });
 
 
-export const PreventDefaultDemo = component$(() => (
-  <div class="m-4">
-    <a
-      href="/"
-      preventdefault:click
-      onClick$={() => alert('do something else.')}
-    >
-      click me!
-    </a>
-  </div>
-));
+export const PreventDefaultDemo = component$(() => {
+  const aHref = useRef();
+
+  useClientEffect$(() => {
+    const handler = (event: Event) => {
+      event.preventDefault();
+      window.open('http://qwik.builder.io');
+    };
+
+    aHref.current!.addEventListener('click', handler);
+    return () => aHref.current!.removeEventListener('click', handler);
+  });
+
+  return (
+    <div class="m-4">
+      <a
+        href="/"
+        preventdefault:click
+        onClick$={() => alert('do something else.')}
+      >
+        click me!
+      </a>
+      <button
+        class="bg-sky-500 text-white px-2 py-1 rounded-lg ml-4"
+        ref={aHref}
+      >
+        open
+      </button>
+    </div>
+  );
+});
