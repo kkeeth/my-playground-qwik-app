@@ -1,4 +1,4 @@
-import { component$, Host, useStore, useClientEffect$, useRef } from "@builder.io/qwik";
+import { component$, useOn, $, Host, useStore, useClientEffect$, useRef } from "@builder.io/qwik";
 
 export default component$(() => {
   const store = useStore({ x: 0, y: 0 });
@@ -21,6 +21,10 @@ export default component$(() => {
       <hr />
 
       <Clock />
+
+      <hr />
+
+      <UseOnDemo />
     </Host>
   );
 });
@@ -74,4 +78,13 @@ export const Clock = component$(() => {
       <div class="p-4">Seconds: {state.seconds}</div>
     </>
   );
+});
+
+export const UseOnDemo = component$(() => {
+  useOn(
+    'click',
+    $(() => alert('Hello World!'))
+  );
+
+  return <div class="p-2 cursor-pointer">App Component. Click me.</div>;
 });
