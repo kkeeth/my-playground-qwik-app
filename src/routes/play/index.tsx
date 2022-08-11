@@ -13,6 +13,23 @@ export default component$(() => {
       }}>
         Your mouse location is ({store.x}, {store.y}).
       </div>
+
+      <hr />
+
+      <PreventDefaultDemo />
     </Host>
   );
 });
+
+
+export const PreventDefaultDemo = component$(() => (
+  <div class="m-4">
+    <a
+      href="/"
+      preventdefault:click
+      onClick$={() => alert('do something else.')}
+    >
+      click me!
+    </a>
+  </div>
+));
