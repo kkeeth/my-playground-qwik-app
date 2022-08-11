@@ -17,6 +17,10 @@ export default component$(() => {
       <hr />
 
       <PreventDefaultDemo />
+
+      <hr />
+
+      <Clock />
     </Host>
   );
 });
@@ -36,7 +40,7 @@ export const PreventDefaultDemo = component$(() => {
   });
 
   return (
-    <div class="m-4">
+    <div class="p-4">
       <a
         href="/"
         preventdefault:click
@@ -51,5 +55,23 @@ export const PreventDefaultDemo = component$(() => {
         open
       </button>
     </div>
+  );
+});
+
+export const Clock = component$(() => {
+  const state = useStore({
+    seconds: 0,
+  });
+  useClientEffect$(() => {
+    const interval = setInterval(() => {
+      state.seconds++;
+    }, 1000);
+    return () => clearInterval(interval);
+  });
+
+  return (
+    <>
+      <div class="p-4">Seconds: {state.seconds}</div>
+    </>
   );
 });
