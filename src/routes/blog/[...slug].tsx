@@ -1,12 +1,15 @@
-import { component$, Host, Resource } from "@builder.io/qwik";
+import { component$, Host, Resource, useScopedStyles$ } from "@builder.io/qwik";
 import {
   useEndpoint,
   DocumentHead,
   EndpointHandler,
 } from "@builder.io/qwik-city";
+import styles from "./blog.css";
 
 export default component$(() => {
   const resource = useEndpoint<typeof onGet>();
+
+  useScopedStyles$(styles);
 
   return (
     <Host>

@@ -21,6 +21,9 @@ export default component$(
             <a href="/docs" class={{ active: pathname.startsWith("/docs") }}>
               Docs
             </a>
+            <a href="/play" class={{ active: pathname.startsWith("/play") }}>
+              Playground
+            </a>
             <a href="/api" class={{ active: pathname.startsWith("/api") }}>
               API
             </a>

@@ -1,0 +1,11 @@
+.play main {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  padding: 0;
+  margin: 0;
+}
+
+.play-content {
+  width: 100vw;
+  padding: 2rem;
+}
